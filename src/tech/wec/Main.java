@@ -4,12 +4,12 @@ import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
         // write your code here
 //        Solution solution = new Solution();
 //        System.out.println(solution.addDigits(38));
-        System.out.println("hello, world");
-    }
+//        System.out.println("hello, world");
+//    }
 }
 
 
