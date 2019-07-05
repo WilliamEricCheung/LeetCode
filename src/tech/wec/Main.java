@@ -197,29 +197,6 @@ class Solution {
         return ans;
     }
 
-    public int maxDepth(TreeNode root) {
-        return curDepth(root, 0);
-    }
-
-    public int curDepth(TreeNode cur, int depth) {
-        if (cur == null) {
-            return depth;
-        } else if (cur.right == null && cur.left == null) {
-            return depth + 1;
-        } else {
-            return Math.max(curDepth(cur.left, depth + 1), curDepth(cur.right, depth + 1));
-        }
-    }
-
-    public boolean isSameTree(TreeNode p, TreeNode q) {
-        if (p == null && q == null)
-            return true;
-        if (p != null && q != null && p.val == q.val)
-            return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
-        else
-            return false;
-    }
-
     public ListNode deleteDuplicates(ListNode head) {
         ListNode current = head;
         while (current != null && current.next != null) {
