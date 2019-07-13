@@ -94,29 +94,6 @@ class Solution {
         }
     }
 
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode p = l1, q = l2;
-        ListNode cur = new ListNode(0);
-        ListNode res = cur;
-        while (p != null && q != null) {
-            if (p.val <= q.val) {
-                cur.next = new ListNode(p.val);
-                p = p.next;
-                cur = cur.next;
-            } else {
-                cur.next = new ListNode(q.val);
-                q = q.next;
-                cur = cur.next;
-            }
-        }
-        if (p == null) {
-            cur.next = q;
-        } else {
-            cur.next = p;
-        }
-        return res.next;
-    }
-
     public String addBinary(String a, String b) {
         int cur = 0;
         StringBuilder result = new StringBuilder();
@@ -153,18 +130,6 @@ class Solution {
         if (root.left == null && root.right == null)
             return sum - root.val == 0;
         return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
-    }
-
-    public ListNode deleteDuplicates(ListNode head) {
-        ListNode current = head;
-        while (current != null && current.next != null) {
-            if (current.next.val == current.val) {
-                current.next = current.next.next;
-            } else {
-                current = current.next;
-            }
-        }
-        return head;
     }
 
     class MinStack {
@@ -237,23 +202,6 @@ class Solution {
         }
     }
 
-    public ListNode reverseList(ListNode head) {
-        Stack<Integer> stack = new Stack<>();
-        ListNode cur = head;
-        ListNode res = new ListNode(0);
-        while (cur != null) {
-            stack.push(cur.val);
-            cur = cur.next;
-        }
-        cur = res;
-        System.out.println(stack);
-        while (!stack.isEmpty()) {
-            cur.next = new ListNode(stack.pop());
-            cur = cur.next;
-        }
-        return res.next;
-    }
-
     public boolean isPowerOfTwo(int n) {
         if (n <= 0)
             return false;
@@ -290,21 +238,6 @@ class Solution {
             }
         }
         return false;
-    }
-
-    public boolean isPalindrome(ListNode head) {
-        ListNode tail = reverseList(head);
-        ListNode head1 = head;
-        ListNode tail1 = tail;
-        while (head1 != null && tail1 != null) {
-            if (head1.val == tail1.val) {
-                head1 = head1.next;
-                tail1 = tail1.next;
-            } else {
-                return false;
-            }
-        }
-        return true;
     }
 
     public int addDigits(int num) {
