@@ -52,26 +52,6 @@ class Solution {
         return R - L - 1;
     }
 
-    public boolean isPalindrome(int x) {
-        if (x < 0 || (x % 10 == 0 && x != 0))
-            return false;
-        else {
-            int tmp = x;
-            int reverse = 0;
-            while (tmp / 10 > 0) {
-                reverse = reverse + tmp % 10;
-                tmp = tmp / 10;
-                reverse = reverse * 10;
-            }
-            reverse += tmp;
-            if (x == reverse) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }
-
     public int mySqrt(int x) {
         long t = x;
         t = 0x5f3759df - (t >> 1);
@@ -103,14 +83,6 @@ class Solution {
         TreeNode(int x) {
             val = x;
         }
-    }
-
-    public boolean hasPathSum(TreeNode root, int sum) {
-        if (root == null)
-            return false;
-        if (root.left == null && root.right == null)
-            return sum - root.val == 0;
-        return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
     }
 
     class MinStack {
@@ -147,42 +119,6 @@ class Solution {
         }
     }
 
-    public int minDepth(TreeNode root) {
-        if (root == null)
-            return 0;
-        int left = minDepth(root.left) + 1;
-        int right = minDepth(root.right) + 1;
-        if (left > 0 && right > 0)
-            return 1 + Math.min(left, right);
-        else
-            return 1 + left + right;
-    }
-
-    List<List<Integer>> res = new ArrayList<>();
-
-    public List<List<Integer>> levelOrder(TreeNode root) {
-        if (root == null)
-            return res;
-        else {
-            DFS(root, 0);
-            return res;
-        }
-    }
-
-    void DFS(TreeNode root, int level) {
-        int size = res.size();
-        // run into next
-        if (level > size - 1)
-            res.add(new ArrayList<>());
-        res.get(level).add(root.val);
-        if (root.left != null) {
-            DFS(root.left, level + 1);
-        }
-        if (root.right != null) {
-            DFS(root.right, level + 1);
-        }
-    }
-
     public boolean isPowerOfTwo(int n) {
         if (n <= 0)
             return false;
@@ -190,23 +126,6 @@ class Solution {
             return true;
         else
             return false;
-    }
-
-    public TreeNode invertTree(TreeNode root) {
-        if (root == null)
-            return null;
-        // 只要两边存在元素就要反转
-        if (!(root.left == null && root.right == null)) {
-            TreeNode left = root.left;
-            TreeNode right = root.right;
-            root.right = left;
-            root.left = right;
-            if (root.right != null)
-                invertTree(root.right);
-            if (root.left != null)
-                invertTree(root.left);
-        }
-        return root;
     }
 
     public boolean containsDuplicate(int[] nums) {
