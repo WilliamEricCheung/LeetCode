@@ -1,6 +1,23 @@
-package tech.wec.LinkedList;
+package tech.wec.DivideAndConquer;
 
-public class MergeTwoSortedLists_21 {
+import tech.wec.LinkedList.ListNode;
+
+public class MergeKSortedLists_23 {
+
+    public ListNode mergeKLists(ListNode[] lists) {
+        int listNum = lists.length;
+        if (listNum == 0)
+            return null;
+        int interval = 1;
+        while(interval < listNum){
+            for (int i =0;i+interval < listNum;i += interval * 2)
+                lists[i] = mergeTwoLists(lists[i], lists[i+interval]);
+            interval *= 2;
+        }
+        return lists[0];
+    }
+
+    // use problem 21 method to merge two lists
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode p = l1, q = l2;
         ListNode cur = new ListNode(0);
