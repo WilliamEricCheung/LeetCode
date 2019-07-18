@@ -172,24 +172,6 @@ class Solution {
 //        return res;
 //    }
 
-    public boolean checkPerfectNumber(int num) {
-        if (num == 1)
-            return true;
-        List<Integer> factors = new ArrayList<>();
-        factors.add(1);
-        for (int i = 2; i <= num / 2 + 1; i++) {
-            if (num % i == 0) {
-                factors.add(i);
-            }
-        }
-        int sum = 0;
-        for (Integer i : factors
-        ) {
-            sum += i;
-        }
-        return sum == num;
-    }
-
     public int missingNumber(int[] nums) {
         int n = nums.length + 1;
         long sum = n * (n + 1) / 2;
