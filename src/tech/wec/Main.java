@@ -389,46 +389,6 @@ class Solution {
         return "";
     }
 
-    public int[] intersection(int[] nums1, int[] nums2) {
-        Set<Integer> set1 = new HashSet<>();
-        Set<Integer> set2 = new HashSet<>();
-        for (int num : nums1
-        ) {
-            set1.add(num);
-        }
-        for (int num : nums2
-        ) {
-            set2.add(num);
-        }
-        set1.retainAll(set2);
-        Object[] res = set1.toArray();
-        int[] ress = new int[res.length];
-        for (int i = 0; i < res.length; i++)
-            ress[i] = (int) res[i];
-        return ress;
-    }
-
-    public int[] intersect(int[] nums1, int[] nums2) {
-        Arrays.sort(nums1);
-        Arrays.sort(nums2);
-        List<Integer> res = new ArrayList<>();
-        for (int i = 0, j = 0; i < nums1.length || j < nums2.length; ) {
-            if (nums1[i] < nums2[j]) {
-                i++;
-            } else if (nums1[i] == nums2[i]) {
-                res.add(nums1[i]);
-                i++;
-                j++;
-            } else {
-                j++;
-            }
-        }
-        int ret[] = new int[res.size()];
-        for (int i = 0; i < res.size(); i++)
-            ret[i] = res.get(i);
-        return ret;
-    }
-
     public int findMin(int[] nums) {
         int min = nums[0];
         for (int i = 0, j = nums.length - 1; i <= j; i++, j--) {
