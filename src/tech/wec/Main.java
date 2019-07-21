@@ -94,15 +94,6 @@ class Solution {
         }
     }
 
-    public boolean isPowerOfTwo(int n) {
-        if (n <= 0)
-            return false;
-        else if ((n & (n - 1)) == 0)
-            return true;
-        else
-            return false;
-    }
-
     public boolean containsDuplicate(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
@@ -113,18 +104,6 @@ class Solution {
             }
         }
         return false;
-    }
-
-    public int addDigits(int num) {
-        if (num <= 9)
-            return num;
-        StringBuilder str = new StringBuilder();
-        str.append(num);
-        int tmp = 0;
-        for (int i = 0; i < str.length(); i++) {
-            tmp += Integer.parseInt(String.valueOf(str.charAt(i)));
-        }
-        return addDigits(tmp);
     }
 
 //    public boolean isHappy(int n) {
@@ -146,17 +125,6 @@ class Solution {
 //        }
 //        return res;
 //    }
-
-    public int missingNumber(int[] nums) {
-        int n = nums.length + 1;
-        long sum = n * (n + 1) / 2;
-        long numSum = 0;
-        for (int i : nums
-        ) {
-            numSum += i;
-        }
-        return (int) (sum - numSum);
-    }
 
     public int fib(int N) {
         if (N == 0)
