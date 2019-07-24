@@ -5,11 +5,16 @@ public class ListNode {
       public ListNode next;
       public ListNode(int x) { val = x; }
 
-      public void printList(ListNode node){
-            while(node!=null){
-                  System.out.print(node.val+" ");
+      public static String listNodeToString(ListNode node) {
+            if (node == null) {
+                  return "[]";
+            }
+
+            String result = "";
+            while (node != null) {
+                  result += Integer.toString(node.val) + ", ";
                   node = node.next;
             }
-            System.out.println();
+            return "[" + result.substring(0, result.length() - 2) + "]";
       }
 }
