@@ -378,30 +378,6 @@ class Solution {
         res[1] = Math.sin(theta) * r + y_center;
         return res;
     }
-
-    public boolean leafSimilar(TreeNode root1, TreeNode root2) {
-        ArrayList<Integer> root1Leaves = DFS(root1);
-        ArrayList<Integer> root2Leaves = DFS(root2);
-
-        printLeaves(root1Leaves);
-        printLeaves(root2Leaves);
-
-        if (root1Leaves.size() != root2Leaves.size())
-            return false;
-        int size = root1Leaves.size();
-        for (int i = 0; i < size; i++) {
-            if (root1Leaves.get(i).equals(root2Leaves.get(i)))
-                return false;
-        }
-        return true;
-    }
-
-    public void printLeaves(ArrayList<Integer> input) {
-        for (int i = 0; i < input.size(); i++) {
-            System.out.print(input.get(i) + " ");
-        }
-    }
-
     class Node {
         int val;
         boolean isLeaf;
@@ -440,39 +416,7 @@ class Solution {
         return res;
     }
 
-    public ArrayList<Integer> DFS(TreeNode root) {
-        ArrayList<Node> list = new ArrayList<>();
-        ArrayList<Integer> res = new ArrayList<>();
-        if (root == null)
-            return res;
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            TreeNode node = stack.pop();
-            // 先往栈中压入右节点，再压左节点，这样出栈就是先左节点后右节点了
-            if (node.right != null)
-                stack.push(node.right);
-            if (node.left != null)
-                stack.push(node.left);
-            if (node.left == null && node.right == null) {
-                Node tmp = new Node();
-                tmp.val = node.val;
-                tmp.isLeaf = true;
-                list.add(tmp);
-            } else {
-                Node tmp = new Node();
-                tmp.val = node.val;
-                tmp.isLeaf = false;
-                list.add(tmp);
-            }
-        }
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).isLeaf) {
-                res.add(list.get(i).val);
-            }
-        }
-        return res;
-    }
+
 
     public String largestNumber(int[] nums) {
         Comparator<String> comparator = new Comparator<String>() {
