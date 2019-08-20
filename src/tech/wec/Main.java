@@ -541,22 +541,6 @@ class Solution {
         return rest < 0 ? -1 : start;
     }
 
-    public boolean isSubsequence(String s, String t) {
-        int curs = 0;
-        int curt = 0;
-        while(curs<s.length()&&curt<t.length()){
-            if (s.charAt(curs) == t.charAt(curt)){
-                curs++;
-                curt++;
-            }else{
-                curt++;
-            }
-        }
-        if (curs == s.length())
-            return true;
-        return false;
-    }
-
     public String strWithout3a3b(int A, int B) {
         StringBuilder res = new StringBuilder();
         while(A>0 || B > 0){
