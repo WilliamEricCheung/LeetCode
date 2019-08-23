@@ -134,19 +134,6 @@ class Solution {
         return fib(N - 1) + fib(N - 2);
     }
 
-    public int hammingDistance(int x, int y) {
-        int ans = x ^ y;
-        int cnt = 0;
-        while (ans / 2 != 0 && ans != 1) {
-            if (ans % 2 != 0)
-                cnt++;
-            ans /= 2;
-        }
-        if (ans == 1)
-            cnt++;
-        return cnt;
-    }
-
     List<String> ans = new ArrayList<>();
 
     public List<String> letterCasePermutation(String S) {
