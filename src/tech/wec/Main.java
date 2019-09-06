@@ -1,15 +1,29 @@
 package tech.wec;
 
+import javafx.util.Pair;
+
 import java.util.*;
 
 public class Main {
 
-//    public static void main(String[] args) {
-        // write your code here
-//        Solution solution = new Solution();
-//        System.out.println(solution.addDigits(38));
-//        System.out.println("hello, world");
-//    }
+    public static void main(String[] args) {
+        PriorityQueue<Pair<Character, Integer>> pq = new PriorityQueue<>();
+        pq.add(new Pair<>('a',6));
+        pq.add(new Pair<>('b',3));
+        pq.add(new Pair<>('c',2));
+        // I want to print like <a, 6> <b, 3> <c, 2>
+        while(!pq.isEmpty()){
+            System.out.println(pq.poll().toString());
+        }
+    }
+
+    public String diverseLetters(int a, int b, int c){
+        PriorityQueue<Pair<Character, Integer>> pq = new PriorityQueue<>();
+        pq.add(new Pair<>('a',a));
+        pq.add(new Pair<>('b',b));
+        pq.add(new Pair<>('c',c));
+        return "";
+    }
 }
 
 
