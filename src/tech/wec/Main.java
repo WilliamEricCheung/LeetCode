@@ -7,14 +7,22 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        PriorityQueue<Pair<Character, Integer>> pq = new PriorityQueue<>();
-        pq.add(new Pair<>('a',6));
-        pq.add(new Pair<>('b',3));
-        pq.add(new Pair<>('c',2));
-        // I want to print like <a, 6> <b, 3> <c, 2>
-        while(!pq.isEmpty()){
-            System.out.println(pq.poll().toString());
-        }
+//        PriorityQueue<Pair<Character, Integer>> pq = new PriorityQueue<>();
+//        pq.add(new Pair<>('a',6));
+//        pq.add(new Pair<>('b',3));
+//        pq.add(new Pair<>('c',2));
+//        // I want to print like <a, 6> <b, 3> <c, 2>
+//        while(!pq.isEmpty()){
+//            System.out.println(pq.poll().toString());
+//        }
+
+        int[] input = new int[]{7,8,8,11,9,7,5,6};
+        List<Integer> daily = new ArrayList<>();
+        for (int i = 0; i <input.length;i++)
+            daily.add(input[i]);
+        Solution solution = new Solution();
+        List<String> result = Solution.stringFormattedWeeklyPrices(daily);
+        System.out.println(result);
     }
 
     public String diverseLetters(int a, int b, int c){
@@ -28,6 +36,145 @@ public class Main {
 
 
 class Solution {
+
+    public static List<String> stringFormattedWeeklyPrices(List<Integer> dailyPrice) {
+        // Write your code here
+        if (dailyPrice.size() < 7)
+            return new ArrayList<>();
+        List<String> result = new ArrayList<>();
+        Deque<Integer> deque = new LinkedList<>();
+        int sumSeven = 0;
+        for (int i = 0; i < dailyPrice.size(); i++){
+            if (deque.size() < 7){
+                deque.addLast(dailyPrice.get(i));
+                sumSeven += dailyPrice.get(i);
+            }
+            if (deque.size() >= 7 && result.size() == 0){
+                double d = sumSeven / 7.00;
+                result.add(String.format("%.2f", d));
+            } else if (deque.size() >= 7 && result.size() > 0){
+                sumSeven -= deque.removeFirst();
+                sumSeven += dailyPrice.get(i);
+                deque.addLast(dailyPrice.get(i));
+                double d = sumSeven / 7.00;
+                result.add(String.format("%.2f", d));
+            }
+        }
+        return result;
+    }
+
+    static class Price{
+        String after;
+        String original;
+        public Price(String after, String original){
+            this.after = after;
+            this.original = original;
+        }
+    }
+
+    public static List<String> strangeSort(List<Integer> mapping, List<String> nums) {
+        // Write your code here
+        // key for changed, value for original
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < mapping.size(); i++){
+            map.put(mapping.get(i), i);
+        }
+        List<Price> prices = new ArrayList<>();
+        for (int i = 0; i < nums.size(); i++){
+            String original = stringToOrginal(nums.get(i), map);
+            Price price = new Price(nums.get(i), original);
+            prices.add(price);
+        }
+        Collections.sort(prices, new Comparator<Price>() {
+            @Override
+            public int compare(Price price, Price t1) {
+                if (price.original.length() != t1.original.length())
+                    return price.original.length() - t1.original.length();
+                return price.original.compareTo(t1.original);
+            }
+        });
+        List<String> result = new ArrayList<>();
+        for (int i = 0; i < prices.size(); i++)
+            result.add(prices.get(i).after);
+        return result;
+    }
+
+    // need to cope with larget NUM!
+    public static String stringToOrginal(String num, Map<Integer, Integer> map){
+        StringBuilder original = new StringBuilder();
+        for (char ch : num.toCharArray()){
+            int value = ch - '0';
+            if (map.containsKey(value)) {
+                value = map.get(value);
+            }
+            original.append(value);
+        }
+        while(original.length() > 0 && original.charAt(0) == '0') {
+            original.replace(0,1,"");
+        }
+        if (original.equals(""))
+            return "0";
+        return original.toString();
+    }
+
+
+    static List<Integer> oddNumbers(int l, int r) {
+        List<Integer> list = new ArrayList<>();
+        for (int i = l; i <= r; i++){
+            if (i % 2 == 1)
+                list.add(i);
+        }
+        return list;
+    }
+
+    class Grade{
+        private int id;
+        private int sum;
+
+        public Grade(int id, int sum){
+            this.id = id;
+            this.sum = sum;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public int getSum() {
+            return sum;
+        }
+
+        public void setSum(int sum) {
+            this.sum = sum;
+        }
+    }
+
+    public int findTheRank(int[][] ranks, int k){
+        ArrayList<Grade> grades = new ArrayList<>();
+        for (int i = 0; i < ranks.length; i++){
+            int sum = 0;
+            for (int j = 0; j < ranks[0].length; j++){
+                sum += ranks[i][j];
+            }
+            Grade grade = new Grade(i, sum);
+            grades.add(grade);
+        }
+        grades.sort(new Comparator<Grade>() {
+            @Override
+            public int compare(Grade grade, Grade t1) {
+                if (grade.sum != t1.sum)
+                    return t1.sum - grade.sum;
+                else
+                    return grade.id - t1.id;
+            }
+        });
+        return grades.get(k-1).id;
+    }
+
     public int lengthOfLongestSubstring(String s) {
         int n = s.length(), ans = 0;
         Map<Character, Integer> map = new HashMap<>();
