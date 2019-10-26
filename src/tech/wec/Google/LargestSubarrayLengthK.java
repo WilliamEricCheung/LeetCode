@@ -6,23 +6,27 @@ import java.util.Collections;
 
 public class LargestSubarrayLengthK {
 
-    public static void main(String[] args){
-        int[] a = new int[]{9,2,9,4,5,4,8,8,2,0};
-        System.out.println(Arrays.toString(largestSubarray(a, 4)));
+    public static void main(String[] args) {
+
     }
 
     // sliding window
-    public static int[] largestSubarray(int[] a, int k){
-        int idx = 0;
-        for (int i = 1; i < a.length - k + 1; i++){
-            for (int ptr = 0; ptr < k; ptr++){
-                if (a[idx + ptr] < a[i + ptr]){
-                    idx = i;
+    // O((N-K)*K)
+    static Integer[] largestSubarray(Integer[] N, int K) {
+        if (K <= 0) // if subarray length <= 0, return a empty array
+            return new Integer[]{};
+        if (N.length <= 0 || K >= N.length )
+            return N; // if N is empty or subarray's length >= N, return N itself
+        int idx = 0; // the index for the subarray
+        for (int i = 1; i < N.length - K + 1; i++){
+            for (int ptr = 0; ptr < K; ptr++){ // the pointer for the subarray to compare
+                if (N[idx + ptr] < N[i + ptr]){  // if currrent Integer is larger
+                    idx = i;                   // save the larger one
                     break;
-                }else if (a[idx + ptr] > a[i + ptr])
+                }else if (N[idx + ptr] > N[i + ptr])
                     break;
             }
         }
-        return Arrays.copyOfRange(a, idx, idx + k);
+        return Arrays.copyOfRange(N, idx, idx + K);
     }
 }
