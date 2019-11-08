@@ -38,6 +38,14 @@ JP Morgan              简历拒
 
 Bloomberg              简历拒
 
+Jane Street            Software Engineer Summer Intern 秒拒
+
+Cisco                  Software Engineer - Master's (Intern) - United States 简历拒
+
+Samsara               (Intern) Software Engineer 秒拒
+
+Citadel                Software Engineer – Intern (US)
+
 ## Just Applied
 Adobe                 投了四个SDE岗位
 
@@ -49,11 +57,7 @@ Asana                  Intern: Software Engineering
 
 Braze                  Software Engineering Intern
 
-Cisco                  Software Engineer - Master's (Intern) - United States
-
 Dropbox                Software Engineer Internship (Summer 2020)
-
-Citadel                Software Engineer – Intern (US)
 
 Datadog                Software Engineer - Intern
 
@@ -62,8 +66,6 @@ Databricks             Software Engineering Intern - Summer 2020
 Expedia                Internship - Multiple Locations - Software Development
 
 Handshake              Software Engineer Intern (San Francisco)
-
-Jane Street            Software Engineer Summer Intern
 
 Oscar                  Software Engineering Intern 2020 (NYC)
 
@@ -76,5 +78,3 @@ PureStorage            Software Engineer Intern
 Roblox                 Engineering Intern (Summer 2020)
 
 SalesForce            Summer 2020 Intern - Software Engineer
-
-Samsara               (Intern) Software Engineer
