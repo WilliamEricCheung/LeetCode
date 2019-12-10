@@ -27,11 +27,11 @@ Riot Games             无消息
 ## In Progress
 Amazon                 11月3日刚完成OA3
 
-Goldman                做完OA和BQ后无消息
+## Rejected
+Goldman                拒绝
 
 Google                 11月12日上午电面
 
-## Rejected
 Microsoft              简历拒
 
 JP Morgan              简历拒
