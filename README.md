@@ -14,18 +14,15 @@ LinkedIn               无消息
 
 Two Sigma              无消息
 
-Uber                   无消息
-
 Yelp                   无消息
 
 Qualcomm               无消息
 
 Morgan Stanley         无消息
 
-Riot Games             无消息
-
 ## In Progress
-Amazon                 11月3日刚完成OA3
+
+Expedia                Internship - Multiple Locations - Software Development
 
 ## Rejected
 Goldman                拒绝
@@ -46,24 +43,30 @@ Samsara               (Intern) Software Engineer 秒拒
 
 Citadel                Software Engineer – Intern (US)
 
+Roblox                 Engineering Intern (Summer 2020)
+
+Amazon                 11月3日刚完成OA3
+
+Riot Games             无消息
+
+Akuna Capital          DEVELOPMENT INTERNSHIP - DATA INFRASTRUCTURE ENGINEERING, SUMMER 2020
+
+PureStorage            Software Engineer Intern
+
+Uber                   无消息
+
 ## Just Applied
 Adobe                 投了四个SDE岗位
 
 Affirm                 很快就投完了
 
-Akuna Capital          DEVELOPMENT INTERNSHIP - DATA INFRASTRUCTURE ENGINEERING, SUMMER 2020
-
 Asana                  Intern: Software Engineering
-
-Braze                  Software Engineering Intern
 
 Dropbox                Software Engineer Internship (Summer 2020)
 
 Datadog                Software Engineer - Intern
 
 Databricks             Software Engineering Intern - Summer 2020
-
-Expedia                Internship - Multiple Locations - Software Development
 
 Handshake              Software Engineer Intern (San Francisco)
 
@@ -73,8 +76,26 @@ Paypal                 Software Engineer Intern in New York
 
 Pinterest              Software Engineering Intern
 
-PureStorage            Software Engineer Intern
+SalesForce             Summer 2020 Intern - Software Engineer
 
-Roblox                 Engineering Intern (Summer 2020)
+Lyft                   Software Engineer Intern, Machine Learning (Summer 2020)
 
-SalesForce            Summer 2020 Intern - Software Engineer
+eBay                   Software Engineer
+
+Yext                   2020 Software Engineer Summer Intern
+
+Pocket Gems            Software Engineer, Summer Intern 2020
+
+Convoy                 Software Engineer - 2020 Intern
+
+TuSimple               2020 Intern - Software Engineer - Integration
+
+Washington Post        Engineering Internships
+
+New York Times         Summer 2020 Intern-  Backend
+
+Red Hat                Software Engineering Internship - Java
+
+Braze                  Software Engineering Intern
+
+Garmin                 Software Engineer Intern (HQ - Olathe, KS - Summer 2020)-19002TP
