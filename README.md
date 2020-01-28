@@ -55,6 +55,8 @@ PureStorage            Software Engineer Intern
 
 Uber                   无消息
 
+Garmin                 Software Engineer Intern (HQ - Olathe, KS - Summer 2020)-19002TP
+
 ## Just Applied
 Adobe                 投了四个SDE岗位
 
@@ -97,5 +99,3 @@ New York Times         Summer 2020 Intern-  Backend
 Red Hat                Software Engineering Internship - Java
 
 Braze                  Software Engineering Intern
-
-Garmin                 Software Engineer Intern (HQ - Olathe, KS - Summer 2020)-19002TP

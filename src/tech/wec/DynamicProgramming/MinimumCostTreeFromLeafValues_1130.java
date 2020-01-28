@@ -1,5 +1,7 @@
 package tech.wec.DynamicProgramming;
 
+import java.util.Stack;
+
 public class MinimumCostTreeFromLeafValues_1130 {
     public int mctFromLeafValues(int[] arr) {
         int n = arr.length;
@@ -26,5 +28,25 @@ public class MinimumCostTreeFromLeafValues_1130 {
         }
         memo[start][end] = res;
         return res;
+    }
+
+    class Solution_1 {
+        // Use stack to keep a decreasing order, while there is bigger value arr[i],
+        // then pop smaller value arr[i] and calculate the multiplication arr[i]*min(num, stack.peek()).
+        public int mctFromLeafValues(int[] arr){
+            if (arr == null || arr.length < 2) return 0;
+            int ans = 0;
+            Stack<Integer> stack = new Stack<>();
+            for (int num: arr){
+                while(!stack.isEmpty() && stack.peek() <= num){
+                    int smaller = stack.pop();
+                    if (stack.isEmpty()) ans += smaller * num;
+                    else ans += smaller * Math.min(stack.peek(), num);
+                }
+                stack.push(num); // if num is smaller, push into stack
+            }
+            while(stack.size() > 1) ans += stack.pop() * stack.peek();
+            return ans;
+        }
     }
 }
