@@ -1,5 +1,7 @@
 package tech.wec.Sort;
 
+import java.util.Arrays;
+
 public class QuickSort {
     /**
      * 快速排序（递归）
@@ -25,9 +27,16 @@ public class QuickSort {
                 left++;
             }
             a[right] = a[left];
+            System.out.println(Arrays.toString(a));
         }
+        System.out.println("-----------------------");
         a[left] = pivot;
         quickSort(a, low, left - 1);
         quickSort(a,left + 1, high);
+    }
+
+    public static void main(String[] args) {
+        int[] a = new int[]{13, 19, 9, 5, 12, 8, 7, 4, 11, 2, 6, 21};
+        quickSort(a, 0, a.length - 1);
     }
 }
