@@ -1,70 +1,97 @@
 package tech.wec.iLoveZQW;
 
+import com.sun.source.tree.IfTree;
+
 import java.util.*;
 
 public class Main {
 
-    private static List<List<Integer>> permutations;
-    private static int n;
-    private static int k;
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        while(input.hasNext()) {
-            n = input.nextInt();
-            k = input.nextInt();
-            permutations = new ArrayList<>();
-            getPermutations(n, new ArrayList<>());
-            printPermutations();
-        }
-    }
-
-    public static void printPermutations() {
-        System.out.println(permutations.size());
-        for (List<Integer> per: permutations) {
-            StringBuilder sb = new StringBuilder();
-            for (Integer i: per) {
-                while(i-- > 0) {
-                    sb.append("*");
-                }
-                sb.append("|");
+        while(input.hasNext()){
+            int n = input.nextInt();
+            PriorityQueue<Long> a = new PriorityQueue<>((aa, bb) ->(int)(bb-aa));
+            PriorityQueue<Long> b = new PriorityQueue<>((aa, bb) ->(int)(bb-aa));
+            for (int i = 0; i < n; i++)
+                a.offer(input.nextLong());
+            for (int i = 0; i < n; i++)
+                b.offer(input.nextLong());
+            int num = 3;
+            int sumA = 0;
+            while(a.size() > 0 && num-- > 0){
+                sumA += a.poll();
             }
-            sb.deleteCharAt(sb.length() - 1); // delete last "|"
-            System.out.println(sb.toString());
-        }
-    }
-
-    public static boolean good(List<Integer> temp, int n){
-        int sum = 0;
-        for (Integer i: temp) sum += i;
-        return sum == n;
-    }
-
-    public static void print(){
-        for (List<Integer> temp: permutations){
-            System.out.println(Arrays.toString(temp.toArray()));
-        }
-    }
-
-    /** DFS
-     * @param remain remain candies
-     * @param temp temporary permutation
-     */
-    public static void getPermutations(int remain, List<Integer> temp) {
-        if (temp.size() == k){
-            // System.out.println("*********temp***********\n"+ Arrays.toString(temp.toArray()));
-            if (good(temp, n)) permutations.add(new ArrayList<>(temp));
-            return;
-        }
-        else {
-            for (int i = remain; i >= 0; i--) {
-                temp.add(i);
-                getPermutations(remain - i, temp); // run into next index, and update remains
-                temp.remove(temp.size() - 1);
+            num = 3;
+            int sumB = 0;
+            while(b.size() > 0 && num-- > 0){
+                sumB += b.poll();
             }
+            System.out.println(Math.max(sumA, sumB));
         }
     }
-
 }
+
+//    private static List<List<Integer>> permutations;
+//    private static int n;
+//    private static int k;
+//    public static void main(String[] args) {
+//        Scanner input = new Scanner(System.in);
+//        while(input.hasNext()) {
+//            n = input.nextInt();
+//            k = input.nextInt();
+//            permutations = new ArrayList<>();
+//            getPermutations(n, new ArrayList<>());
+//            printPermutations();
+//        }
+//    }
+//
+//    public static void printPermutations() {
+//        System.out.println(permutations.size());
+//        for (List<Integer> per: permutations) {
+//            StringBuilder sb = new StringBuilder();
+//            for (Integer i: per) {
+//                while(i-- > 0) {
+//                    sb.append("*");
+//                }
+//                sb.append("|");
+//            }
+//            sb.deleteCharAt(sb.length() - 1); // delete last "|"
+//            System.out.println(sb.toString());
+//        }
+//    }
+//
+//    public static boolean good(List<Integer> temp, int n){
+//        int sum = 0;
+//        for (Integer i: temp) sum += i;
+//        return sum == n;
+//    }
+//
+//    public static void print(){
+//        for (List<Integer> temp: permutations){
+//            System.out.println(Arrays.toString(temp.toArray()));
+//        }
+//    }
+//
+//    /** DFS
+//     * @param remain remain candies
+//     * @param temp temporary permutation
+//     */
+//    public static void getPermutations(int remain, List<Integer> temp) {
+//        if (temp.size() == k){
+//            // System.out.println("*********temp***********\n"+ Arrays.toString(temp.toArray()));
+//            if (good(temp, n)) permutations.add(new ArrayList<>(temp));
+//            return;
+//        }
+//        else {
+//            for (int i = remain; i >= 0; i--) {
+//                temp.add(i);
+//                getPermutations(remain - i, temp); // run into next index, and update remains
+//                temp.remove(temp.size() - 1);
+//            }
+//        }
+//    }
+//
+//}
 
 //    public static void main(String[] args) {
 //        Scanner input = new Scanner(System.in);
