@@ -2,24 +2,24 @@ package tech.wec.Math;
 
 public class SqrtX_69 {
     public int mySqrt(int x) {
-        if (x <= 1)
+        if (x <= 1){
             return x;
-        long left = 0;
-        long right = x;
-        long middle;
-        while(left<right){
-            middle = left + (right - left)/2;
-            long time = middle * middle;
-            if (middle == left)
-                break;
-            if (time == x)
-                return (int)middle;
-            else if (time < x){
-                left = middle;
-            }else{
-                right = middle;
-            }
         }
-        return (int)left;
+        long start = 0, end = x, mid = x / 2;
+        while(start < end) {
+            long pow = mid * mid;
+            if (mid == start) {
+                break;
+            }
+            if (pow < x) {
+                start = mid;
+            }else if (pow > x) {
+                end = mid;
+            }else {
+                return (int)mid;
+            }
+            mid = start + (end - start) / 2;
+        }
+        return (int)mid;
     }
 }
