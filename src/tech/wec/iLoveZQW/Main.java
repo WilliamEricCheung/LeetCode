@@ -1,7 +1,5 @@
 package tech.wec.iLoveZQW;
 
-import com.sun.source.tree.IfTree;
-
 import java.util.*;
 
 public class Main {

@@ -19,15 +19,16 @@ public class FindFirstAndLastPositionOfElementInSortedArray_34 {
      * @return
      */
     private int findLimit(int[] nums, int target, boolean direct){
-        int low = 0;
-        int high = nums.length;
-        while(low < high){
-            int mid = (high + low) / 2;
-            if (nums[mid]>target || (direct && nums[mid] == target))
-                high = mid;
-            else
-                low = mid + 1;
+        int start = 0, end = nums.length;
+        int mid = start + (end - start) / 2;;
+        while(start < end) {
+            if (nums[mid] > target || (direct && nums[mid] == target )) {
+                end = mid;
+            }else {
+                start = mid + 1;
+            }
+            mid = start + (end - start) / 2;
         }
-        return low;
+        return mid;
     }
 }
