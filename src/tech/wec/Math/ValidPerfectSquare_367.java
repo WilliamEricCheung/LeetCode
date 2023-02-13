@@ -16,4 +16,27 @@ public class ValidPerfectSquare_367 {
         }
         return false;
     }
+
+    // 改编69题
+    public boolean isPerfectSquare_1(int num) {
+        if(num <= 1) {
+            return true;
+        }
+        long start = 0, end = num, mid = num / 2;
+        while(start < end) {
+            long pow = mid * mid;
+            if (mid == start) {
+                break;
+            }
+            if (pow < num) {
+                start = mid;
+            }else if (pow > num) {
+                end = mid;
+            }else {
+                return true;
+            }
+            mid = start + (end - start) / 2;
+        }
+        return false;
+    }
 }
