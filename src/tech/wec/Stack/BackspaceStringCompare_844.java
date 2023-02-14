@@ -27,4 +27,25 @@ public class BackspaceStringCompare_844 {
         }
         return stack;
     }
+
+//    public boolean backspaceCompare(String s, String t) {
+//        return backspaceString(s).equals(backspaceString(t));
+//    }
+//
+//    public String backspaceString(String str) {
+//        int len = 0;
+//        StringBuffer sb = new StringBuffer();
+//        for(int i = 0; i < str.length(); i++) {
+//            char ch = str.charAt(i);
+//            if(ch == '#' && sb.length() > 0) {
+//                sb.deleteCharAt(--len);
+//            }else if(ch == '#' && sb.length() == 0){
+//                continue;
+//            }else{
+//                sb.append(ch);
+//                len++;
+//            }
+//        }
+//        return sb.toString();
+//    }
 }
